@@ -35,3 +35,5 @@ Looks like this::
     The id is invalid - it is already in use.
     The id is invalid - it is already in use.
     <ProtocolError for admin:admin@localhost:8080/Plone/screenshot.png: 500 Internal Server Error>
+
+We can ignore the "id in use" messages because they are expected. setImage continues to fail. Weird. And hard to get more info.
