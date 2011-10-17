@@ -6,8 +6,23 @@ Introduction
 This repository showcases a bad interaction between Zope2's XML-RPC support and ATImage's setImage mutator.
 
 
-Details
-=======
+Installation
+============
+
+How to reproduce this error::
+
+    $ git clone git://github.com/aclark4life/xmlrpc_setimage_wtf.git
+    $ cd xmlrpc_setimage_wtf
+    $ python2.6 bootstrap.py -d
+    $ bin/buildout
+    $ bin/plone start
+    $ python wtf.py
+
+You should see results like below.
+
+
+Error details
+=============
 
 ``wtf.py`` contains code to create a *Document*, *Folder*, and *Image*. The Document and Folder code works fine, the Image code fails with a 500 status code (and no traceback).
 
