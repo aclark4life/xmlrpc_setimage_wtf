@@ -1,8 +1,10 @@
+from OFS.Image import File
+
 import sys
 import traceback
 import xmlrpclib
 
-url = 'http://admin:admin@localhost:8080/Plone'
+url = 'http://admin:admin@localhost:8080/Plone/subsites'
 proxy = xmlrpclib.ServerProxy(url)
 
 # create page
@@ -18,7 +20,7 @@ proxy.setText("""Professionally extend dynamic manufactured products""")
 # create folder
 proxy = xmlrpclib.ServerProxy(url)  # reset
 try:
-    proxy.invokeFactory('Folder', 'test-folder')
+    proxy.invokeFactory('Section', 'test-folder')
 except xmlrpclib.ProtocolError:
     print sys.exc_info()[1]
 except xmlrpclib.Fault:
@@ -29,7 +31,12 @@ proxy.setDescription('This is a test folder')
 
 # create image
 proxy = xmlrpclib.ServerProxy(url)  # reset
-wrappedData = xmlrpclib.Binary(open('screenshot.png').read())
+#wrappedData = xmlrpclib.Binary(open('screenshot.png').read())
+filename = 'screenshot.png'
+data = open(filename).read()
+fileData = File(filename, filename, data, 'application/octet-stream')
+fileData.filename = filename
+wrappedData = fileData
 try:
     proxy.invokeFactory('Image', 'screenshot.png')
 except xmlrpclib.ProtocolError:
