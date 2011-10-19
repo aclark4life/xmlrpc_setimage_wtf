@@ -52,3 +52,10 @@ Looks like this::
     <ProtocolError for admin:admin@localhost:8080/Plone/screenshot.png: 500 Internal Server Error>
 
 We can ignore the "id in use" messages because they are expected. setImage continues to fail. Weird. And hard to get more info.
+
+Fix
+===
+
+Fixed by adding an adapter to plone.app.blob:
+
+- https://github.com/aclark4life/plone.app.blob/blob/master/src/plone/app/blob/adapters/xmlrpc.py
