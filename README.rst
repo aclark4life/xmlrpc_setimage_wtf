@@ -1,5 +1,5 @@
 
-.. Note::
+.. Warning::
 
     Fixed! See details below
 
