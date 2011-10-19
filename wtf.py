@@ -29,7 +29,7 @@ proxy.setDescription('This is a test folder')
 
 # create image
 proxy = xmlrpclib.ServerProxy(url)  # reset
-data = open('screenshot.png').read()
+wrappedData = xmlrpclib.Binary(open('screenshot.png').read())
 try:
     proxy.invokeFactory('Image', 'screenshot.png')
 except xmlrpclib.ProtocolError:
@@ -39,6 +39,6 @@ except xmlrpclib.Fault:
 proxy = xmlrpclib.ServerProxy(url + '/screenshot.png')
 proxy.setTitle('This is an image')
 try:
-    proxy.setImage(data)  # XXX this fails
+    proxy.setImage(wrappedData)  # XXX this fails
 except:
     print sys.exc_info()[1]
