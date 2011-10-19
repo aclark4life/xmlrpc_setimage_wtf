@@ -1,8 +1,4 @@
 
-.. Warning::
-
-    Fixed! See details below
-
 Introduction
 ============
 
