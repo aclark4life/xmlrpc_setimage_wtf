@@ -1,4 +1,7 @@
 
+.. Note::
+
+    Fixed! See details below
 
 Introduction
 ============
